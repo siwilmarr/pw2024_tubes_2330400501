@@ -46,6 +46,14 @@ if (isset($_POST['cari'])) {
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <style>
+        .card-img,
+        .card-img-bottom,
+        .card-img-top {
+            height: 380px;
+            width: 280px;
+        }
+    </style>
 </head>
 
 <body>
@@ -70,7 +78,7 @@ if (isset($_POST['cari'])) {
             <?php foreach ($handphone as $hp) : ?>
                 <div class="col-lg-4 col-md-6 my-2  d-flex justify-content-around ">
                     <div class="card" style="width: 18rem;">
-                        <img src="img/<?= $hp["gambar_produk"]; ?>" class="card-img-top" alt="..." width="280px">
+                        <img src="img/<?= $hp["gambar_produk"]; ?>" class="card-img-top" alt="...">
                         <div class=" card-body text-center">
                             <h5 class="card-title"><?= $hp["nama_produk"]; ?></h5>
                             <p><?= $hp["harga_beli"]; ?></p>

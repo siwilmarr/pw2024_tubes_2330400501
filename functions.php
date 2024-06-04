@@ -111,7 +111,7 @@ function hapus($id)
     $conn = koneksi();
 
     // menghapus gambar di folder img
-    $hp = query("SELECT * FROM technology WHERE id = $id");
+    $hp = query("SELECT * FROM technology WHERE id = $id")[0];
     if ($hp['gambar_produk'] != 'nopoto.png') {
         unlink('img/' . $hp['gambar_produk']);
     }

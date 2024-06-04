@@ -35,6 +35,15 @@ if (isset($_POST['cari'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        .card-img,
+        .card-img-bottom,
+        .card-img-top {
+            height: 380px;
+            width: 280px;
+        }
+    </style>
 </head>
 
 <body>
@@ -61,7 +70,7 @@ if (isset($_POST['cari'])) {
             <?php foreach ($handphone as $hp) : ?>
                 <div class="col-lg-4 col-md-6 my-2  d-flex justify-content-around ">
                     <div class="card" style="width: 18rem;">
-                        <img src="img/<?= $hp["gambar_produk"]; ?>" class="card-img-top" alt="..." width="280px">
+                        <img src="img/<?= $hp["gambar_produk"]; ?>" class="card-img-top" alt="...">
                         <div class=" card-body text-center">
                             <h5 class="card-title"><?= $hp["nama_produk"]; ?></h5>
                             <p><?= $hp["harga_beli"]; ?></p>

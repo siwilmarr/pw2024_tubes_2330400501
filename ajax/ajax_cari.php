@@ -13,6 +13,8 @@ $handphone = cari($_GET['keyword']);
                     <p><?= $hp["harga_beli"]; ?></p>
                     <a href="detail.php?id=<?= $hp["id"]; ?>" class="btn btn-dark mb-3">Lihat Detail</a> <br>
                     <a href="ubah.php?id=<?= $hp["id"]; ?>" class="btn btn-primary">Ubah</a> <a href="hapus.php?id=<?= $hp["id"]; ?>" onclick="return confirm('Serius Mau Dihapus ?')" class="btn btn-danger">Hapus</a>
+                    <br>
+                    <p class="btn btn-success mt-2"><?= $hp["kategori_id"]; ?></p>
                 </div>
             </div>
         </div>

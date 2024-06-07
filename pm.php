@@ -1,21 +1,8 @@
 <?php
-session_start();
-
-if (isset($_SESSION['login'])) {
-    header("Location: index.php");
-    exit;
-}
-
-
 require 'functions.php';
 
 $no = 1;
-$handphone = query("SELECT * FROM technology");
-
-if (isset($_POST['login'])) {
-
-    $login = login($_POST);
-}
+$handphone = query("SELECT * FROM technology WHERE kategori_id=2");
 
 // tombol cari ditekan
 if (isset($_POST['cari'])) {
@@ -32,7 +19,7 @@ if (isset($_POST['cari'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>Pro Max Series</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
@@ -52,10 +39,9 @@ if (isset($_POST['cari'])) {
 
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style="background-color:#2a2a2a">
         <div class="container-fluid">
-
             <h3 class="navbar-brand">Technology Handphone</h3>
             <li class="nav-item navbar-nav me-auto mb-2 mb-lg-0">
-                <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                <a class="nav-link active text-white" aria-current="page" href="login.php">Home</a>
             </li>
             <li class="nav-item dropdown navbar-nav me-auto mb-2 mb-lg-0">
                 <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,7 +56,6 @@ if (isset($_POST['cari'])) {
             <form action="" method="POST" class="d-flex">
                 <input type="text" name="keywoard" placeholder="Search..." autocomplete="off" class="keyword form-control me-2">
                 <button type="submit" name="cari" class="btn btn-dark" class="tombol-cari-user" style="border: 1px solid white;"><i class='bx bx-search'></i></button>
-
             </form>
 
 
@@ -79,7 +64,7 @@ if (isset($_POST['cari'])) {
     </nav>
 
     <h3 class="text-center mb-4 fw-bold" style="padding-top:100px;">Product</h3>
-    <div class="container">
+    <div class="container ">
 
         <div class="row">
             <?php foreach ($handphone as $hp) : ?>
@@ -97,48 +82,9 @@ if (isset($_POST['cari'])) {
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <br><br><br><br><br><br><br><br>
-
-
-
-
-
-
-
-    <div class="container" style="background-color:#2a2a2a;">
-        <div class="row justify-content-center mt-5" style="padding-top:80px; padding-bottom:80px;">
-
-            <div class="card" style="width: 23rem;">
-                <div class="box">
-                    <div class="icon text-center pt-3">
-                        <i class="bx bxs-user-circle fs-1 text-center"></i>
-                    </div>
-                    <div class="card-body ">
-                        <h4 class="card-title text-center">Login</h4>
-                        <form method="POST" action="">
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="type" class="form-control" id="username" name="username" placeholder="username" id="username" required>
-                                <div id="emailHelp" class="form-text"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="password" id="password" required>
-                            </div>
-                            <?php if (isset($login['error'])) : ?>
-                                <p style="color: red;"><?= $login['pesan']; ?></p>
-                            <?php endif; ?>
-                            <button type="submit" class="btn btn-dark" name="login">Sign In</button>
-
-                            <button type="button" class="btn btn-dark" name="register">
-                                <a href="register.php" class=" text-decoration-none text-white">Sign Up</a>
-                            </button>
-                        </form>
-
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-                        <script src="js/script.user.js"></script>
+    <script src="js/script.user.js"></script>
 
 </body>
 

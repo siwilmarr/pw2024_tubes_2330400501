@@ -36,26 +36,24 @@ if (isset($_POST['cari'])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
-        .card-img,
-        .card-img-bottom,
-        .card-img-top {
-            height: 380px;
-            width: 280px;
-        }
-    </style>
+    <!-- boxicon link -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    </body>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style="background-color:#2a2a2a">
         <div class="container-fluid">
-            <a href="tambahproduk.php" class="btn btn-light" style="margin-right:10px;">Tambah Data Produk</a>
-            <a href="logout.php" class="btn btn-light" style="margin-right:210px;">Logout</a>
-            <h3 class="navbar-brand">Teknologi Handphone</h3>
+            <a href="tambahproduk.php" class="btn btn-light" style="margin-right:10px;">Add Product</a>
+            <a href="logout.php" class="btn btn-light" style="margin-right:260px;">Logout</a>
+            <h3 class="navbar-brand">Technology Handphone</h3>
             <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
             <form action="" method="POST" class="d-flex">
-                <input type="text" name="keywoard" placeholder="Masukkan Pencarian..." autocomplete="off" class="keyword form-control me-2">
-                <button type="submit" name="cari" class="btn btn-dark" class="tombol-cari">Search</button>
+                <input type="text" name="keywoard" placeholder="Search..." autocomplete="off" class="keyword form-control me-2">
+                <button type="submit" name="cari" class="btn btn-dark" class="tombol-cari-user" style="border: 1px solid white;"><i class='bx bx-search'></i></button>
+
             </form>
 
         </div>
@@ -75,7 +73,9 @@ if (isset($_POST['cari'])) {
                             <h5 class="card-title"><?= $hp["nama_produk"]; ?></h5>
                             <p><?= $hp["harga_beli"]; ?></p>
                             <a href="detail.php?id=<?= $hp["id"]; ?>" class="btn btn-dark mb-3">Lihat Detail</a> <br>
-                            <a href="ubah.php?id=<?= $hp["id"]; ?>" class="btn btn-primary">Ubah</a> <a href="hapus.php?id=<?= $hp["id"]; ?>" onclick="return confirm('Serius Mau Dihapus ?')" class="btn btn-danger">Hapus</a>
+                            <a href="ubah.php?id=<?= $hp["id"]; ?>" class="btn btn-primary">Edit</a> <a href="hapus.php?id=<?= $hp["id"]; ?>" onclick="return confirm('Serius Mau Dihapus ?')" class="btn btn-danger">Delete</a>
+                            <br>
+                            <p class="btn btn-success mt-2"><?= $hp["kategori_id"]; ?></p>
                         </div>
                     </div>
                 </div>

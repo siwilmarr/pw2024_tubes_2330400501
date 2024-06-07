@@ -38,7 +38,7 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubah Data Produk</title>
+    <title>Edit Data Product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
@@ -48,26 +48,33 @@ if (isset($_POST["submit"])) {
         <div class="row justify-content-center mt-5">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title text-center">Ubah data</h5>
+                    <h5 class="card-title text-center">Edit</h5>
                     <form action="" method="POST" enctype="multipart/form-data">
 
                         <input type="hidden" name="id" value="<?= $pdk["id"]; ?>">
                         <div class="mb-3">
-                            <label class="form-label">Nama Produk</label>
+                            <label class="form-label">Name Product</label>
                             <input type="text" class="form-control" id="tnama" name="tproduk" placeholder="Masukkan Nama Produk" value="<?= $pdk["nama_produk"]; ?>">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Harga Produk</label>
+                            <label for="kategori_id" class="form-label">Handphone Series</label>
+                            <select name="kategori_id" id="kategori_id" class="form-control" required>
+                                <option value="1">None</option>
+                                <option value="2">Pro Max</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price Product</label>
                             <input type="text" class="form-control" id="tharga" name="tharga" placeholder="Masukkan Harga Produk" value="<?= $pdk["harga_beli"]; ?>">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Detail Produk</label>
+                            <label class="form-label">Detail Product</label>
                             <textarea name="tdetail" id="" cols="30" rows="5" placeholder="Masukkan Detail Produk"> <?= $pdk["detail"]; ?>
                         </textarea>
                         </div>
                         <div class="mb-3">
                             <input type="hidden" name="gambar_lama" value="<?= $pdk["gambar_produk"]; ?>">
-                            <label class="form-label">Gambar
+                            <label class="form-label">Picture
                                 <input type="file" class="gambar" onchange="previewImage()" name="tgambar" placeholder="Masukkan Gambar Produk">
                             </label>
                             <img src="img/<?= $pdk["gambar_produk"]; ?>" width="120" class="img-preview">

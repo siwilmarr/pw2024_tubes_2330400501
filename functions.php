@@ -89,6 +89,8 @@ function tambah($data)
     $produk = htmlspecialchars($data['tproduk']);
     $harga = htmlspecialchars($data['tharga']);
     $detail = htmlspecialchars($data['tdetail']);
+    $kategori_id = htmlspecialchars($data['kategori_id']);
+
 
     // upload gambar
     $gambar = upload();
@@ -97,7 +99,7 @@ function tambah($data)
     }
 
     $sql = "INSERT INTO technology VALUES
-    (null, '$gambar', '$produk', '$harga', '$detail');
+    (null, '$gambar', '$produk', '$harga', '$detail', '$kategori_id');
     ";
 
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -131,6 +133,7 @@ function ubah($data)
     $produk = htmlspecialchars($data["tproduk"]);
     $harga = htmlspecialchars($data["tharga"]);
     $detail = htmlspecialchars($data['tdetail']);
+    $kategori_id = htmlspecialchars($data['kategori_id']);
 
 
     $gambar = upload();
@@ -147,7 +150,8 @@ function ubah($data)
     gambar_produk = '$gambar',
     nama_produk = '$produk',
     harga_beli = '$harga',
-    detail = '$detail'
+    detail = '$detail',
+    kategori_id = '$kategori_id'
     WHERE id = '$id'
     ";
 
@@ -271,6 +275,6 @@ function login($data)
     }
     return [
         'error' => true,
-        'pesan' => 'Username / Password Salah!'
+        'pesan' => 'Username or password incorrect!'
     ];
 }
